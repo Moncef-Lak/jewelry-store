@@ -1,14 +1,18 @@
 {
-  "name": "bijoux-store",
+  "name": " lm-jewelry-store",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Moncef-Lak.github.io/",
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "gh": "^2.8.9",
+    "gh-pages": "^4.0.0",
     "gsap": "^3.7.1",
+    "pages": "0.0.16",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.13.0",
@@ -20,6 +24,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
