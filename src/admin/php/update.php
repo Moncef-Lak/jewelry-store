@@ -26,14 +26,14 @@
         if ($_POST["type"]==='update-category') {
             $name=$_POST["name"];
             $active=$_POST["active"];       
-            $image_before='../../images/category-image/'.$_POST["image_before"];       
+            $image_before=$image_file_path.$_POST["image_before"];       
             $id=$_POST["id"];       
             if (isset($_FILES["image"]["name"])) {
                 $image_path=$_FILES["image"]["tmp_name"];
                 $image_name=$_FILES["image"]["name"];
                 @$ext=end(explode('.',$image_name));
                 $image_name="Category_".rand(0000,999999).'.'.$ext;
-                $image="../../images/category-image/".$image_name;
+                $image=$image_file_path.$image_name;
                 $upload = move_uploaded_file($image_path,$image);
                 if ($upload==false) {
                     echo 'faild to upload image';
@@ -85,14 +85,14 @@
         if ($_POST["type"]==='update-picture') {
             $favorit=$_POST["favorit"];
             $active=$_POST["active"];       
-            $image_before='../../images/gallery-image/'.$_POST["image_before"];       
+            $image_before=$image_file_path.$_POST["image_before"];       
             $id=$_POST["id"];       
             if (isset($_FILES["image"]["name"])) {
                 $image_path=$_FILES["image"]["tmp_name"];
                 $image_name=$_FILES["image"]["name"];
                 @$ext=end(explode('.',$image_name));
                 $image_name="Gallery_".rand(0000,999999).'.'.$ext;
-                $image="../../images/Gallery-image/".$image_name;
+                $image=$image_file_path.$image_name;
                 $upload = move_uploaded_file($image_path,$image);
                 if ($upload==false) {
                     echo 'faild to upload image';
@@ -149,8 +149,8 @@
             $active=$_POST["active"];      
             $id=$_POST["id"];      
        
-            $image_before='../../images/bijoux-image/'.$_POST["image_before"];       
-            $image_before2='../../images/bijoux-image/'.$_POST["back_image_before"];            
+            $image_before=$image_file_path.$_POST["image_before"];       
+            $image_before2=$image_file_path.$_POST["back_image_before"];            
 
 
             if (isset($_FILES["image"]["name"]) ){
@@ -158,7 +158,7 @@
                 $image_name=$_FILES["image"]["name"];
                 @$ext=end(explode('.',$image_name));
                 $image_name="Bijoux_".rand(0000,999999).'.'.$ext;
-                $image="../../images/bijoux-image/".$image_name;
+                $image=$image_file_path.$image_name;
                 $upload = move_uploaded_file($image_path,$image);
                 if ($upload==false) {
                     echo 'faild to upload image';
@@ -179,7 +179,7 @@
                 $image_name2=$_FILES["back_image"]["name"];
                 @$ext2=end(explode('.',$image_name2));
                 $image_name2="Bijoux_".rand(0000,999999).'.'.$ext2;
-                $image2="../../images/bijoux-image/".$image_name2;
+                $image2=$image_file_path.$image_name2;
                 $upload2 = move_uploaded_file($image_path2,$image2);
                 if ($upload2==false) {
                     echo 'faild to upload image';
@@ -224,4 +224,3 @@
         }
 
     }
-?>

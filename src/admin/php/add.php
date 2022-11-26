@@ -65,7 +65,7 @@
             
             @$ext=end(explode('.',$image_name));
             $image_name="Category_".rand(0000,999999).'.'.$ext;
-            $image="../../images/category-image/".$image_name;
+            $image=$image_file_path.$image_name;
             $upload = move_uploaded_file($image_path,$image);
             if ($upload==false) {
                 echo 'faild to upload image';
@@ -97,7 +97,7 @@
             
             @$ext=end(explode('.',$image_name));
             $image_name="Gallery_".rand(0000,999999).'.'.$ext;
-            $image="../../images/gallery-image/".$image_name;
+            $image=$image_file_path.$image_name;
             $upload = move_uploaded_file($image_path,$image);
             if ($upload==false) {
                 echo 'faild to upload image';
@@ -132,14 +132,14 @@
             $image_name=$_FILES["image"]["name"];
             @$ext=end(explode('.',$image_name));
             $image_name="Bijoux_Image_".rand(0000,999999).'.'.$ext;
-            $image="../../images/bijoux-image/".$image_name;
+            $image=$image_file_path.$image_name;
             $upload = move_uploaded_file($image_path,$image);
             
             $image_path2=$_FILES["back-image"]["tmp_name"];
             $image_name2=$_FILES["back-image"]["name"];
             @$ext2=end(explode('.',$image_name2));
             $image_name2="Bijoux_Back_Image_".rand(0000,999999).'.'.$ext2;
-            $image2="../../images/bijoux-image/".$image_name2;
+            $image2=$image_file_path.$image_name2;
             $upload2 = move_uploaded_file($image_path2,$image2);
 
             if ($upload==false || $upload2==false) {
@@ -163,5 +163,3 @@
 
         }
     }
-
-?>
