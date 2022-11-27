@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as  Router,Switch,Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AddAdmin from "./admin/add-admin";
 import AddBijoux from "./admin/add-bijoux";
 import AddCategory from "./admin/add-category";
@@ -23,51 +23,96 @@ import Gallery from "./pages/gallery";
 import Histoire from "./pages/histoire";
 import Home from "./pages/home";
 import Navbar from "./pages/Navbar";
-import { TweenMax} from "gsap";
+import { TweenMax } from "gsap";
 import Cart from "./pages/cart";
-
+import Error from "./pages/404";
 
 function App() {
-
-  useEffect(()=>{
-    TweenMax.to('.container',0,{css:{visibility:'visible'}})
-  })
+  useEffect(() => {
+    TweenMax.to(".container", 0, { css: { visibility: "visible" } });
+  });
 
   return (
-    <section className='container'>
-      <Router >
+    <section className="container">
+      <Router>
         <Switch>
-          <Route exact path='/home'><HomeAdmin/></Route>
-          <Route exact path='/admin'><ManagAdmin/></Route>
-          <Route exact path='/AddAdmin'><AddAdmin/></Route>
-          <Route exact path='/update-Admin/:id'><UpdateAdmin/></Route>
-          <Route exact path='/categories'><ManagCategory/></Route>
-          <Route exact path='/AddCategory'><AddCategory/></Route>
-          <Route exact path='/update-category/:id'><UpdateCategory/></Route>
-          <Route exact path='/gallery'><ManagGallery/></Route>
-          <Route exact path='/AddPicture'><AddPicture/></Route>
-          <Route exact path='/update-picture/:id'><UpdatePicture/></Route>
-          <Route exact path='/bijoux'><ManagBijoux/></Route>
-          <Route exact path='/AddBijoux'><AddBijoux/></Route>
-          <Route exact path='/update-bijoux/:id'><UpdateBijoux/></Route>
-          <Route exact path='/Orders'><ManagOrder/></Route>
-          <Route exact path='/login'><Login/></Route>
+          <Route exact path="/home">
+            <HomeAdmin />
+          </Route>
+          <Route exact path="/admin">
+            <ManagAdmin />
+          </Route>
+          <Route exact path="/AddAdmin">
+            <AddAdmin />
+          </Route>
+          <Route exact path="/update-Admin/:id">
+            <UpdateAdmin />
+          </Route>
+          <Route exact path="/categories">
+            <ManagCategory />
+          </Route>
+          <Route exact path="/AddCategory">
+            <AddCategory />
+          </Route>
+          <Route exact path="/update-category/:id">
+            <UpdateCategory />
+          </Route>
+          <Route exact path="/gallery">
+            <ManagGallery />
+          </Route>
+          <Route exact path="/AddPicture">
+            <AddPicture />
+          </Route>
+          <Route exact path="/update-picture/:id">
+            <UpdatePicture />
+          </Route>
+          <Route exact path="/bijoux">
+            <ManagBijoux />
+          </Route>
+          <Route exact path="/AddBijoux">
+            <AddBijoux />
+          </Route>
+          <Route exact path="/update-bijoux/:id">
+            <UpdateBijoux />
+          </Route>
+          <Route exact path="/Orders">
+            <ManagOrder />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
           <>
-            <Navbar/>
-            <Route exact path='/'><Home/></Route>
-            <Route exact path='/store'><Boutique/></Route>
-            <Route exact path='/detail/:id'><Detail/></Route>
-            <Route exact path='/about'><About/></Route>
-            <Route exact path='/contact'><Contact/></Route>
-            <Route exact path='/histoire'><Histoire/></Route>
-            <Route exact path='/galler'><Gallery/></Route>
-            <Route exact path='/cart'><Cart/></Route>
+            <Navbar />
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/store">
+              <Boutique />
+            </Route>
+            <Route exact path="/detail/:id">
+              <Detail />
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/histoire">
+              <Histoire />
+            </Route>
+            <Route exact path="/galler">
+              <Gallery />
+            </Route>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+            <Route path="*">
+              <Error />
+            </Route>
           </>
-          
-
         </Switch>
       </Router>
-      
     </section>
   );
 }

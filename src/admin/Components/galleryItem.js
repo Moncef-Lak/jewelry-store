@@ -4,7 +4,7 @@ import { MdDoNotDisturbAlt } from "react-icons/md";
 import { SiOrigin } from "react-icons/si";
 import { MdUpdate } from "react-icons/md";
 import { Link } from "react-router-dom";
-import errorImage from "../static/media/not-found-image.jpg";
+import errorImage from "./../../images/008_-_404_error_4x.webp";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
 
 const GalleyElem = ({
@@ -22,9 +22,10 @@ const GalleyElem = ({
   // chek file exists
   useEffect(() => {
     try {
-      if (require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name)) {
+      if (require("../../../public/php/images/gallery-image/" + image_name)) {
         setImgUrl(
-          require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name).default
+          require("../../../public/php/images/gallery-image/" + image_name)
+            .default
         );
       }
     } catch (error) {

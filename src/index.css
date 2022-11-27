@@ -263,6 +263,7 @@ textarea:focus {
 .container .navbar-in-out .navbar-in .in-center img {
   width: 56px;
   height: 42px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -331,6 +332,22 @@ textarea:focus {
   color: #555;
 }
 
+.container .navbar-in-out .navbar-out form input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.container .navbar-in-out .navbar-out form input::-moz-placeholder {
+  color: #999;
+}
+
+.container .navbar-in-out .navbar-out form input:-ms-input-placeholder {
+  color: #999;
+}
+
+.container .navbar-in-out .navbar-out form input::-ms-input-placeholder {
+  color: #999;
+}
+
 .container .navbar-in-out .navbar-out form input::placeholder {
   color: #999;
 }
@@ -361,6 +378,7 @@ textarea:focus {
   max-height: 460px;
   overflow: hidden;
 }
+
 .container .navbar-in-out .navbar-out .all-data-Search h2 {
   width: 100%;
   height: 45px;
@@ -379,7 +397,7 @@ textarea:focus {
   background-color: rgba(34, 34, 34, 0.11);
 }
 
-.container .navbar-in-out .navbar-out .all-data-Search a:focus h2{
+.container .navbar-in-out .navbar-out .all-data-Search a:focus h2 {
   background-color: rgba(34, 34, 34, 0.11);
 }
 
@@ -613,7 +631,9 @@ textarea:focus {
 
 .intro-photos .img1 img, .intro-photos .img2 img, .intro-photos .img3 img, .intro-photos .img4 img {
   box-sizing: border-box;
+  position: -webkit-sticky;
   position: sticky;
+  -o-object-fit: cover;
   object-fit: cover;
   z-index: 8;
 }
@@ -1024,6 +1044,7 @@ textarea:focus {
 .container .in-boutique .boutique-face img {
   box-sizing: border-box;
   position: relative;
+  -o-object-fit: cover;
   object-fit: cover;
   width: 35%;
   height: 700px;
@@ -1045,6 +1066,7 @@ textarea:focus {
 .container .in-boutique .boutique-story img {
   box-sizing: border-box;
   width: 20%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1287,6 +1309,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1309,6 +1332,7 @@ textarea:focus {
   box-sizing: border-box;
   position: absolute;
   z-index: 4;
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 5px;
   width: 25%;
@@ -1323,6 +1347,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 170px;
   height: 200px;
+  -o-object-fit: cover;
   object-fit: cover;
   padding: 10px;
 }
@@ -1425,6 +1450,7 @@ textarea:focus {
 .container .details-page .in-deails .img-side img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1498,6 +1524,7 @@ textarea:focus {
 .container .details-page .in-deails .img-center img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 
 }
@@ -1597,6 +1624,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 65%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1609,6 +1637,7 @@ textarea:focus {
   height: 13.5vw;
   background-color: #fff;
   padding: 20px 15px;
+  -o-object-fit: cover;
   object-fit: cover;
 
 }
@@ -1665,6 +1694,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -1674,6 +1704,7 @@ textarea:focus {
   width: 55%;
   height: 50%;
   padding: 40px 25px;
+  -o-object-fit: cover;
   object-fit: cover;
   background-color: rgba(255, 255, 255, 0.74);
   box-shadow: 0 0 10px rgba(34, 34, 34, 0.336);
@@ -1831,6 +1862,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 40%;
   height: 450px;
+  -o-object-fit: cover;
   object-fit: cover;
   margin: 0;
 }
@@ -1850,7 +1882,9 @@ textarea:focus {
   box-sizing: border-box;
   width: 65px;
   height: 50px;
+  -o-object-fit: cover;
   object-fit: cover;
+  -webkit-filter: contrast(30%);
   filter: contrast(30%);
 }
 
@@ -1877,6 +1911,7 @@ textarea:focus {
   position: fixed;
   width: 100%;
   height: 100%;
+  -webkit-backdrop-filter: blur(25px);
   backdrop-filter: blur(25px);
   z-index: -1;
   display: flex;
@@ -1983,6 +2018,22 @@ textarea:focus {
   margin: 20px 0;
 }
 
+.container .contact-page .body-contact .left-side-contact input::-webkit-input-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact input::-moz-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact input:-ms-input-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact input::-ms-input-placeholder {
+  color: #faebe37c;
+}
+
 .container .contact-page .body-contact .left-side-contact input::placeholder {
   color: #faebe37c;
 }
@@ -1998,6 +2049,22 @@ textarea:focus {
   background: transparent;
   margin: 20px 0;
 
+}
+
+.container .contact-page .body-contact .left-side-contact textarea::-webkit-input-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact textarea::-moz-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact textarea:-ms-input-placeholder {
+  color: #faebe37c;
+}
+
+.container .contact-page .body-contact .left-side-contact textarea::-ms-input-placeholder {
+  color: #faebe37c;
 }
 
 .container .contact-page .body-contact .left-side-contact textarea::placeholder {
@@ -2054,6 +2121,7 @@ textarea:focus {
   width: 50%;
   height: 400px;
   margin-top: 150px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2131,6 +2199,7 @@ textarea:focus {
   box-sizing: border-box;
   width: 80%;
   height: 500px;
+  -o-object-fit: cover;
   object-fit: cover;
   margin-top: 100px;
 }
@@ -2144,6 +2213,7 @@ textarea:focus {
 .container .histoire-page .histoire-content-bottom img {
   box-sizing: border-box;
   width: 40%;
+  -o-object-fit: cover;
   object-fit: cover;
   height: 300px;
 
@@ -2219,6 +2289,7 @@ textarea:focus {
 .container .gallery-page .gallery-face img {
   box-sizing: border-box;
   position: relative;
+  -o-object-fit: cover;
   object-fit: cover;
   width: 35%;
   height: 700px;
@@ -2240,6 +2311,7 @@ textarea:focus {
 .container .gallery-page .gallery-story img {
   box-sizing: border-box;
   width: 17%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2408,6 +2480,7 @@ textarea:focus {
 .container .cart-page .pay-fill .payment-box .box img {
   width: 5.5vw;
   height: 1.4vw;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2582,6 +2655,7 @@ textarea:focus {
 .container .cart-page .items-fill .all-products .product-box .img img {
   width: 80%;
   height: 80%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -2647,6 +2721,26 @@ textarea:focus {
 .container .cart-page .items-fill form .input:focus {
   border: 2.5px solid #7f3d1c;
 
+}
+
+.container .cart-page .items-fill form .input::-webkit-input-placeholder {
+  font-weight: 200;
+  color: #999;
+}
+
+.container .cart-page .items-fill form .input::-moz-placeholder {
+  font-weight: 200;
+  color: #999;
+}
+
+.container .cart-page .items-fill form .input:-ms-input-placeholder {
+  font-weight: 200;
+  color: #999;
+}
+
+.container .cart-page .items-fill form .input::-ms-input-placeholder {
+  font-weight: 200;
+  color: #999;
 }
 
 .container .cart-page .items-fill form .input::placeholder {
@@ -3540,6 +3634,7 @@ textarea:focus {
   border: 3px #595f70 solid;
   border-radius: 100%;
   padding: 2px;
+  -o-object-fit: cover;
   object-fit: cover;
   transition: .5s;
   cursor: pointer;
@@ -3668,6 +3763,7 @@ textarea:focus {
 .container .add-admin-page .in-add-admin .left-side img {
   box-sizing: border-box;
   width: 70%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -3742,6 +3838,22 @@ textarea:focus {
   outline: none;
 }
 
+.container .add-admin-page .in-add-admin .right-side form textarea::-webkit-input-placeholder {
+  color: var(--color-admin-light3);
+}
+
+.container .add-admin-page .in-add-admin .right-side form textarea::-moz-placeholder {
+  color: var(--color-admin-light3);
+}
+
+.container .add-admin-page .in-add-admin .right-side form textarea:-ms-input-placeholder {
+  color: var(--color-admin-light3);
+}
+
+.container .add-admin-page .in-add-admin .right-side form textarea::-ms-input-placeholder {
+  color: var(--color-admin-light3);
+}
+
 .container .add-admin-page .in-add-admin .right-side form textarea::placeholder {
   color: var(--color-admin-light3);
 }
@@ -3793,6 +3905,22 @@ textarea:focus {
 
 .container .add-admin-page .in-add-admin .right-side form input:focus {
   outline: red;
+}
+
+.container .add-admin-page .in-add-admin .right-side form input::-webkit-input-placeholder {
+  color: rgba(153, 153, 153, 0.747);
+}
+
+.container .add-admin-page .in-add-admin .right-side form input::-moz-placeholder {
+  color: rgba(153, 153, 153, 0.747);
+}
+
+.container .add-admin-page .in-add-admin .right-side form input:-ms-input-placeholder {
+  color: rgba(153, 153, 153, 0.747);
+}
+
+.container .add-admin-page .in-add-admin .right-side form input::-ms-input-placeholder {
+  color: rgba(153, 153, 153, 0.747);
 }
 
 .container .add-admin-page .in-add-admin .right-side form input::placeholder {
@@ -3964,6 +4092,7 @@ textarea:focus {
   border-radius: 100%;
   padding: 2px;
   border: 3px #595f70 solid;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -4090,6 +4219,7 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   z-index: 2;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 5px 40px #a2a5e83f;
@@ -4121,6 +4251,22 @@ textarea:focus {
   transition: var(--transition);
   border-top: 2px solid transparent;
   background-color: transparent;
+}
+
+.container .login-page form input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.container .login-page form input::-moz-placeholder {
+  color: #999;
+}
+
+.container .login-page form input:-ms-input-placeholder {
+  color: #999;
+}
+
+.container .login-page form input::-ms-input-placeholder {
+  color: #999;
 }
 
 .container .login-page form input::placeholder {
@@ -4156,6 +4302,39 @@ textarea:focus {
 
 
 
+/*-------------------------------------------------- error-start --------------------------------------------------*/
+.error {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.error img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 25rem;
+  margin-bottom: 2rem;
+}
+
+.error .error-back {
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  transition: .3s;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: #111 2px solid;
+}
+
+.error .error-back:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+/*-------------------------------------------------- error-end --------------------------------------------------*/
 
 
 
@@ -4924,7 +5103,7 @@ textarea:focus {
     font-weight: 500;
     font-size: 15vw;
   }
-  
+
   .container .gallery-page .gallery-face img {
     height: 500px;
     transform: translateY(135px);
@@ -5140,7 +5319,7 @@ textarea:focus {
     width: 90%;
   }
 
-  .content .intro-photos .to-shop-page button ,
+  .content .intro-photos .to-shop-page button,
   .container .to-about button {
 
     font-size: 3.5vw;
@@ -5167,6 +5346,7 @@ textarea:focus {
   }
 
   .container .details-page .in-deails .img-side img {
+    -o-object-position: 50% 50%;
     object-position: 50% 50%;
   }
 
@@ -5470,7 +5650,7 @@ textarea:focus {
   /*-------------------------------------------------- gallery-start --------------------------------------------------*/
   .container .gallery-page .gallery-face h1 {
     transform: translateY(-115px);
-    
+
   }
 
   .container .gallery-page .gallery-face img {

@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useCallback, useRef, useEffect, useState } from "react";
-import errorImage from "./../images/not-found-image.jpg";
+import errorImage from "./../images/008_-_404_error_4x.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,8 +31,10 @@ const MyPicture = ({ image_name, index }) => {
 
   useEffect(() => {
     try {
-      if (require("../images/gallery-image/" + image_name)) {
-        setImgUrl(require("../images/gallery-image/" + image_name).default);
+      if (require("../../public/php/images/gallery-image/" + image_name)) {
+        setImgUrl(
+          require("../../public/php/images/gallery-image/" + image_name).default
+        );
       }
     } catch (error) {
       setImgUrl(errorImage);

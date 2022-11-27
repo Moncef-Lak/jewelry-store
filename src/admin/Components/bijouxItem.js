@@ -5,7 +5,7 @@ import { SiOrigin } from "react-icons/si";
 import { MdUpdate } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../contexts/adminContext";
-import errorImage from "../static/media/not-found-image.jpg";
+import errorImage from "./../../images/008_-_404_error_4x.webp";
 
 const BijouxElem = ({
   id,
@@ -32,9 +32,10 @@ const BijouxElem = ({
   // chek file exists
   useEffect(() => {
     try {
-      if (require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name)) {
+      if (require("../../../public/php/images/bijoux-image/" + image_name)) {
         setImgUrl(
-          require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name).default
+          require("../../../public/php/images/bijoux-image/" + image_name)
+            .default
         );
       }
     } catch (error) {
@@ -42,9 +43,10 @@ const BijouxElem = ({
     }
 
     try {
-      if (require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name2)) {
+      if (require("../../../public/php/images/bijoux-image/" + image_name2)) {
         setBackImgUrl(
-          require(process.env.REACT_APP_IMAGE_FILE_PATH + image_name2).default
+          require("../../../public/php/images/bijoux-image/" + image_name2)
+            .default
         );
       }
     } catch (error) {
