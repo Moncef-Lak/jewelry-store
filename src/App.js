@@ -25,7 +25,6 @@ import Home from "./pages/home";
 import Navbar from "./pages/Navbar";
 import { TweenMax } from "gsap";
 import Cart from "./pages/cart";
-import Error from "./pages/404";
 
 function App() {
   useEffect(() => {
@@ -106,9 +105,6 @@ function App() {
             </Route>
             <Route exact path="/cart">
               <Cart />
-            </Route>
-            <Route path="*">
-              <Error />
             </Route>
           </>
         </Switch>

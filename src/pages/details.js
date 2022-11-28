@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import Foot from "../Components/foot";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useGlobalContext } from "../contexts/adminContext";
-import errorImage from "./../images/008_-_404_error_4x.webp";
 import MoreItem from "../Components/morItems";
 import axios from "axios";
 
@@ -25,10 +24,6 @@ const Detail = React.memo(() => {
   const { push } = useHistory();
   const [fourBijoux, setFourBijoux] = useState([]);
   const [sameCatagory, setSameCatagory] = useState({});
-  const [imgUrl, setImgUrl] = useState(null);
-  const [backImgUrl, setBackImgUrl] = useState(null);
-  const [frimgUrl, setFrImgUrl] = useState(null);
-  const [frbackImgUrl, setFrBackImgUrl] = useState(null);
   const { bijouxItems, setCartItems, cartItems } = useGlobalContext();
   const bijouxItem = bijouxItems.filter((item) => item.id === id);
 
@@ -56,30 +51,7 @@ const Detail = React.memo(() => {
               image_name2,
               id,
             });
-            try {
-              if (
-                require("../../public/php/images/bijoux-image/" + image_name)
-              ) {
-                setFrImgUrl(
-                  require("../../public/php/images/bijoux-image/" + image_name)
-                    .default
-                );
-              }
-            } catch (error) {
-              setFrImgUrl(errorImage);
-            }
-            try {
-              if (
-                require("../../public/php/images/bijoux-image/" + image_name2)
-              ) {
-                setFrBackImgUrl(
-                  require("../../public/php/images/bijoux-image/" + image_name2)
-                    .default
-                );
-              }
-            } catch (error) {
-              setFrBackImgUrl(errorImage);
-            }
+
             if (bijouxItem[0]) {
               const { name, description, image_name, price, image_name2 } =
                 bijouxItem[0];
@@ -91,33 +63,6 @@ const Detail = React.memo(() => {
                 image_name,
                 image_name2,
               });
-            }
-
-            try {
-              if (
-                require("../../public/php/images/bijoux-image/" +
-                  bijouxItem[0].image_name)
-              ) {
-                setImgUrl(
-                  require("../../public/php/images/bijoux-image/" +
-                    bijouxItem[0].image_name).default
-                );
-              }
-            } catch (error) {
-              setImgUrl(errorImage);
-            }
-            try {
-              if (
-                require("../../public/php/images/bijoux-image/" +
-                  bijouxItem[0].image_name2)
-              ) {
-                setBackImgUrl(
-                  require("../../public/php/images/bijoux-image/" +
-                    bijouxItem[0].image_name2).default
-                );
-              }
-            } catch (error) {
-              setBackImgUrl(errorImage);
             }
           }
         });
@@ -153,20 +98,50 @@ const Detail = React.memo(() => {
       <section className="details-page">
         <div className="in-deails">
           <div className="img-side">
-            <img src={backImgUrl} alt="img" />
+            {state.image_name2 && (
+              <img
+                src={
+                  process.env.REACT_APP_IMAGE_FILE_PATH +
+                  "bijoux-image/" +
+                  state.image_name2
+                }
+                onError={(e) =>
+                  (e.target.src =
+                    process.env.REACT_APP_IMAGE_FILE_PATH +
+                    "008_-_404_error_4x.webp")
+                }
+                alt="img"
+              />
+            )}
           </div>
           <div className="details-side">
             <h1>{state.name}</h1>
             <h3>€{state.price}</h3>
             <p>{state.description}</p>
             <button
-              onClick={() => addItem(state.name, state.price, imgUrl, id)}
+              onClick={() =>
+                addItem(state.name, state.price, state.image_name, id)
+              }
             >
               Add to cart
             </button>
           </div>
           <div className="img-center">
-            <img src={imgUrl} alt="img" />
+            {state.image_name && (
+              <img
+                src={
+                  process.env.REACT_APP_IMAGE_FILE_PATH +
+                  "bijoux-image/" +
+                  state.image_name
+                }
+                onError={(e) =>
+                  (e.target.src =
+                    process.env.REACT_APP_IMAGE_FILE_PATH +
+                    "008_-_404_error_4x.webp")
+                }
+                alt="img"
+              />
+            )}
           </div>
         </div>
         {sameCatagory && (
@@ -180,8 +155,38 @@ const Detail = React.memo(() => {
             </div>
             <div className="right-fitt">
               <div className="img-box">
-                <img src={frbackImgUrl} className="img1" alt="img" />
-                <img src={frimgUrl} className="img2" alt="img" />
+                {state2.image_name2 && (
+                  <img
+                    src={
+                      process.env.REACT_APP_IMAGE_FILE_PATH +
+                      "bijoux-image/" +
+                      state2.image_name2
+                    }
+                    onError={(e) =>
+                      (e.target.src =
+                        process.env.REACT_APP_IMAGE_FILE_PATH +
+                        "008_-_404_error_4x.webp")
+                    }
+                    className="img1"
+                    alt="img"
+                  />
+                )}
+                {state2.image_name && (
+                  <img
+                    src={
+                      process.env.REACT_APP_IMAGE_FILE_PATH +
+                      "bijoux-image/" +
+                      state2.image_name
+                    }
+                    onError={(e) =>
+                      (e.target.src =
+                        process.env.REACT_APP_IMAGE_FILE_PATH +
+                        "008_-_404_error_4x.webp")
+                    }
+                    className="img2"
+                    alt="img"
+                  />
+                )}
               </div>
             </div>
           </div>

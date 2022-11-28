@@ -9,15 +9,12 @@ import axios from "axios";
 import { MdCancel, MdDoNotDisturbOn } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { useGlobalContext } from "../contexts/adminContext";
-import errorImage from "./../images/008_-_404_error_4x.webp";
 
 const UpdateBijoux = () => {
   const [isListBeforShowing, setIsListBeforShowing] = useState(false);
   const [msgShowing, setMsgShowing] = useState(false);
   const { id } = useParams();
   const { push } = useHistory();
-  const [imgUrl, setImgUrl] = useState(null);
-  const [backImgUrl, setBackImgUrl] = useState(null);
   const { bijouxItems, setIsBijouxItems } = useGlobalContext();
   const BijouxItem = bijouxItems.filter((item) => item.id === id);
   // console.log(adminUserItem);
@@ -112,29 +109,6 @@ const UpdateBijoux = () => {
   const image_name = BijouxItem[0] ? BijouxItem[0].image_name : "Error";
   const image_name_back = BijouxItem[0] ? BijouxItem[0].image_name2 : "Error";
 
-  useEffect(() => {
-    try {
-      if (require("../../public/php/images/bijoux-image/" + image_name)) {
-        setImgUrl(
-          require("../../public/php/images/bijoux-image/" + image_name).default
-        );
-      }
-    } catch (error) {
-      setImgUrl(errorImage);
-    }
-
-    try {
-      if (require("../../public/php/images/bijoux-image/" + image_name_back)) {
-        setBackImgUrl(
-          require("../../public/php/images/bijoux-image/" + image_name_back)
-            .default
-        );
-      }
-    } catch (error) {
-      setBackImgUrl(errorImage);
-    }
-  }, [image_name, image_name_back]);
-
   return (
     <>
       <AdminNavbar />
@@ -202,13 +176,41 @@ const UpdateBijoux = () => {
               <div className="list-before-box">
                 <h2>Image :</h2>
                 <h4>
-                  <img src={BijouxItem[0] && imgUrl} alt="img" />
+                  {BijouxItem[0] && (
+                    <img
+                      src={
+                        process.env.REACT_APP_IMAGE_FILE_PATH +
+                        "bijoux-image/" +
+                        image_name
+                      }
+                      onError={(e) =>
+                        (e.target.src =
+                          process.env.REACT_APP_IMAGE_FILE_PATH +
+                          "008_-_404_error_4x.webp")
+                      }
+                      alt="img"
+                    />
+                  )}
                 </h4>
               </div>
               <div className="list-before-box">
                 <h2>Back Image :</h2>
                 <h4>
-                  <img src={BijouxItem[0] && backImgUrl} alt="img" />
+                  {BijouxItem[0] && (
+                    <img
+                      src={
+                        process.env.REACT_APP_IMAGE_FILE_PATH +
+                        "bijoux-image/" +
+                        image_name_back
+                      }
+                      onError={(e) =>
+                        (e.target.src =
+                          process.env.REACT_APP_IMAGE_FILE_PATH +
+                          "008_-_404_error_4x.webp")
+                      }
+                      alt="img"
+                    />
+                  )}
                 </h4>
               </div>
             </div>

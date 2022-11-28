@@ -9,14 +9,12 @@ import axios from "axios";
 import { MdCancel, MdDoNotDisturbOn } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { useGlobalContext } from "../contexts/adminContext";
-import errorImage from "../images/008_-_404_error_4x.webp";
 
 const UpdateCategory = () => {
   const [isListBeforShowing, setIsListBeforShowing] = useState(false);
   const [msgShowing, setMsgShowing] = useState(false);
   const { id } = useParams();
   const { push } = useHistory();
-  const [imgUrl, setImgUrl] = useState(null);
   const { categoryItems, setIsCategoryItems } = useGlobalContext();
   const CategoryItem = categoryItems.filter((item) => item.id === id);
   // console.log(adminUserItem);
@@ -78,18 +76,6 @@ const UpdateCategory = () => {
   }, [msgShowing]);
 
   const image_name = CategoryItem[0] ? CategoryItem[0].image_name : "a";
-  useEffect(() => {
-    try {
-      if (require("../../public/php/images/category-image/" + image_name)) {
-        setImgUrl(
-          require("../../public/php/images/category-image/" + image_name)
-            .default
-        );
-      }
-    } catch (error) {
-      setImgUrl(errorImage);
-    }
-  }, [image_name]);
 
   return (
     <>
@@ -141,7 +127,21 @@ const UpdateCategory = () => {
               <div className="list-before-box">
                 <h2>Image :</h2>
                 <h4>
-                  <img src={CategoryItem[0] && imgUrl} alt="img" />
+                  {CategoryItem[0] && (
+                    <img
+                      src={
+                        process.env.REACT_APP_IMAGE_FILE_PATH +
+                        "category-image/" +
+                        image_name
+                      }
+                      onError={(e) =>
+                        (e.target.src =
+                          process.env.REACT_APP_IMAGE_FILE_PATH +
+                          "008_-_404_error_4x.webp")
+                      }
+                      alt="img"
+                    />
+                  )}
                 </h4>
               </div>
             </div>

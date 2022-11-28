@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../contexts/adminContext";
-import errorImage from "./../images/008_-_404_error_4x.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,8 +15,6 @@ const Products = ({
   index,
   isChanging,
 }) => {
-  const [imgUrl, setImgUrl] = useState(null);
-  const [backimgUrl, setBackImgUrl] = useState(null);
   const { categoryItems } = useGlobalContext();
   const category_name = categoryItems.filter((item) => item.id === category_id);
   let product = useRef(null);
@@ -55,27 +52,6 @@ const Products = ({
   //     }
   // },[])
 
-  useEffect(() => {
-    try {
-      if (require("../../public/php/images/bijoux-image/" + image_name)) {
-        setImgUrl(
-          require("../../public/php/images/bijoux-image/" + image_name).default
-        );
-      }
-    } catch (error) {
-      setImgUrl(errorImage);
-    }
-    try {
-      if (require("../../public/php/images/bijoux-image/" + image_name2)) {
-        setBackImgUrl(
-          require("../../public/php/images/bijoux-image/" + image_name2).default
-        );
-      }
-    } catch (error) {
-      setBackImgUrl(errorImage);
-    }
-  }, [image_name, image_name2, isChanging]);
-
   // useEffect(() => {
   //     onscroll=()=>{
   //         imgAnimation();
@@ -93,7 +69,18 @@ const Products = ({
       ref={(e) => (product = e)}
     >
       <div className={`right-side ${isChanging && "right-side-change"}`}>
-        <img src={backimgUrl} alt="img" />
+        <img
+          src={
+            process.env.REACT_APP_IMAGE_FILE_PATH +
+            "bijoux-image/" +
+            image_name2
+          }
+          onError={(e) =>
+            (e.target.src =
+              process.env.REACT_APP_IMAGE_FILE_PATH + "008_-_404_error_4x.webp")
+          }
+          alt="img"
+        />
       </div>
       <div
         className={`left-side ${index % 2 >= 1 && !isChanging && rightOrLeft}`}
@@ -113,7 +100,16 @@ const Products = ({
         </button>
       </div>
       <div className={`in-center ${isChanging && "in-center-change"}`}>
-        <img src={imgUrl} alt="img" />
+        <img
+          src={
+            process.env.REACT_APP_IMAGE_FILE_PATH + "bijoux-image/" + image_name
+          }
+          onError={(e) =>
+            (e.target.src =
+              process.env.REACT_APP_IMAGE_FILE_PATH + "008_-_404_error_4x.webp")
+          }
+          alt="img"
+        />
       </div>
     </Link>
   );

@@ -1,12 +1,10 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import React, { useCallback, useRef, useEffect, useState } from "react";
-import errorImage from "./../images/008_-_404_error_4x.webp";
+import React, { useCallback, useRef, useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MyPicture = ({ image_name, index }) => {
-  const [imgUrl, setImgUrl] = useState(null);
   let picture = useRef(null);
 
   useEffect(() => {
@@ -30,17 +28,8 @@ const MyPicture = ({ image_name, index }) => {
   }, []);
 
   useEffect(() => {
-    try {
-      if (require("../../public/php/images/gallery-image/" + image_name)) {
-        setImgUrl(
-          require("../../public/php/images/gallery-image/" + image_name).default
-        );
-      }
-    } catch (error) {
-      setImgUrl(errorImage);
-    }
     imgAnimation();
-  }, [image_name, imgAnimation]);
+  }, [imgAnimation]);
 
   return (
     <div
@@ -50,7 +39,13 @@ const MyPicture = ({ image_name, index }) => {
       }`}
     >
       <img
-        src={imgUrl}
+        src={
+          process.env.REACT_APP_IMAGE_FILE_PATH + "gallery-image/" + image_name
+        }
+        onError={(e) =>
+          (e.target.src =
+            process.env.REACT_APP_IMAGE_FILE_PATH + "008_-_404_error_4x.webp")
+        }
         alt="img"
         style={
           index % 2 > 0

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoIosRemoveCircle } from "react-icons/io";
 import { MdDoNotDisturbAlt } from "react-icons/md";
 import { SiOrigin } from "react-icons/si";
 import { MdUpdate } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../contexts/adminContext";
-import errorImage from "./../../images/008_-_404_error_4x.webp";
 
 const BijouxElem = ({
   id,
@@ -23,51 +22,38 @@ const BijouxElem = ({
   setItemImgBack,
 }) => {
   const { categoryItems } = useGlobalContext();
-  const [imgUrl, setImgUrl] = useState(null);
-  const [backImgUrl, setBackImgUrl] = useState(null);
   const category = categoryItems.filter(
     (category) => category.id === category_id
   );
-
-  // chek file exists
-  useEffect(() => {
-    try {
-      if (require("../../../public/php/images/bijoux-image/" + image_name)) {
-        setImgUrl(
-          require("../../../public/php/images/bijoux-image/" + image_name)
-            .default
-        );
-      }
-    } catch (error) {
-      setImgUrl(errorImage);
-    }
-
-    try {
-      if (require("../../../public/php/images/bijoux-image/" + image_name2)) {
-        setBackImgUrl(
-          require("../../../public/php/images/bijoux-image/" + image_name2)
-            .default
-        );
-      }
-    } catch (error) {
-      setBackImgUrl(errorImage);
-    }
-  }, [image_name, image_name2, setImgUrl]);
 
   return (
     <tr className={`${index % 2 > 0 && "cd"}`}>
       <td>{index + 1}</td>
       <td className="img">
         <img
+          src={
+            process.env.REACT_APP_IMAGE_FILE_PATH + "bijoux-image/" + image_name
+          }
+          onError={(e) =>
+            (e.target.src =
+              process.env.REACT_APP_IMAGE_FILE_PATH + "008_-_404_error_4x.webp")
+          }
           onClick={(e) => e.target.classList.toggle("zoomImg")}
-          src={imgUrl}
           alt="img"
         />
       </td>
       <td className="img">
         <img
+          src={
+            process.env.REACT_APP_IMAGE_FILE_PATH +
+            "bijoux-image/" +
+            image_name2
+          }
+          onError={(e) =>
+            (e.target.src =
+              process.env.REACT_APP_IMAGE_FILE_PATH + "008_-_404_error_4x.webp")
+          }
           onClick={(e) => e.target.classList.toggle("zoomImg")}
-          src={backImgUrl}
           alt="img"
         />
       </td>
