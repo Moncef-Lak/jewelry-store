@@ -29,6 +29,27 @@ import Cart from "./pages/cart";
 function App() {
   useEffect(() => {
     TweenMax.to(".container", 0, { css: { visibility: "visible" } });
+
+    console.log(
+      "%c Hello to lm jewelry store ",
+      "font-weight: bold; font-size: 50px;color:#f6e4f1; text-shadow: 3px 3px 0 #f5b2e2 , 6px 6px 0 #bc85ac , 9px 9px 0 #815b76; margin-bottom: 12px; padding: 5%"
+    );
+    console.log(
+      "%c moncef.lakehal@outlook.com",
+      "font-weight: bold; font-size: 20px;background: linear-gradient(45deg,#bdc3c7,#2c3e50);color:#fff;margin: 1rem; padding: 3.5%"
+    );
+    console.log(
+      "%c My Linkedin https://www.linkedin.com/in/moncefdev/",
+      "font-weight: bold; font-size: 20px;background: linear-gradient(45deg,#0a66c2,#ddd);color:#fff;margin: 1rem; padding: 3.5%"
+    );
+    console.log(
+      "%c My GitHub https://github.com/MoncefDeveloper",
+      "font-weight: bold; font-size: 20px;background: linear-gradient(45deg,#f05133,#fff);color:#fff;margin: 1rem; padding: 3.5%"
+    );
+    console.log(
+      "%c My website https://moncefdev.site",
+      "font-weight: bold; font-size: 20px;background: linear-gradient(45deg,#159,#f59);color:#fff;margin: 1rem; padding: 3.5%"
+    );
   });
 
   return (
